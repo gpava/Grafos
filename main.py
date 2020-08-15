@@ -74,9 +74,9 @@ def main():
     G.ingresararista("5", "6", 20, False)
     G.ingresararista("9", "6", 130, False)
     G.ingresararista("9", "10", 30, False)"""
-    G.Boruvka()
+    G.arbolprim("Popeye")
     G.Prim()
-    G.Kruskal()
+
 
 
 main()

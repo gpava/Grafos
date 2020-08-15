@@ -361,4 +361,38 @@ class Grafo():
 
         return None  # es la menor
 
+    def arbolprim(self, origen):
+        if not self.verificarvertice(origen):  # verifico el vertice origen
+            return None
+        desde = self.obtenervertice(origen)
+        listaVisitados = []  # visitados de prim
+        listaAristas = []  # aristas de prim
+        listaVisitados.append(origen)
+        while len(listaVisitados) is not len(self.ListaVertices):  # itero hasta que visitadosprim sea igual a lista de vertices
+            aristaMenor = self.buscarAristaMenor(listaVisitados)  # busco la arista menor
+            listaAristas.append(aristaMenor)
+            listaVisitados.append(aristaMenor.getDestino())
+        print("---------Arbol Prim------------")
+        print("Peso Mínimo",self.SumarPesos(listaAristas))
+        for Arista in listaAristas:
+            print("Origen: {0} - Destino: {1} - Peso: {2}".format(Arista.getOrigen(), Arista.getDestino(),
+                                                                  Arista.getPeso()))
 
+    def buscarAristaMenor(self, listaVisitados):
+        listaAristasaux = []  # lista auxiliar con las aristas a cada vertice
+        for v in listaVisitados:  # recorro los vertices visitados
+            vertice = self.obtenervertice(v)
+            for aux in vertice.getListaAdyacentes():  # recorro los adyacentes a cada vertice
+                if aux not in listaVisitados:  # verifico que cada adyacente ya haya sido visitado
+                    arista = self.verificararista(v, aux)
+                    if arista not in listaAristasaux:
+                        listaAristasaux.append(arista)
+        """print("------Lista Aristas auxiliares a: ---------", v.getdato())
+        print(listaAristasaux)"""
+        self.ordenamiento(listaAristasaux)
+        aristaMenor = listaAristasaux[0]
+        """print()
+        print("--------La menor es-----------")
+        print(aristaMenor)
+        print()"""
+        return aristaMenor
