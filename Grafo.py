@@ -399,12 +399,13 @@ class Grafo():
 
     def caminoMasCorto(self, origen, destino):
         VerticesAux = []
-        VerticesD=[]
+        VerticesD = []
         caminos = self.dijkstra(origen, VerticesAux)
         cont = 0
         for i in caminos:
             print("La distancia mínima a: " + self.ListaVertices[cont].getDato() + " es " + str(i))
             cont = cont + 1
+
         self.rutas(VerticesD,VerticesAux,destino,origen)
         print("El camino más corto de: " + origen + " a " + destino + " es: ")
         print(VerticesD)
@@ -439,7 +440,7 @@ class Grafo():
             if aux is None:
                 break
             indice = self.ListaVertices.index(aux)  # indice del menor no marcado
-            marcados[indice] = True  # marco este valor
+            marcados[indice] = True  # marco como visitado
             valorActual = caminos[indice]
             for vAdya in aux.getListaAdyacentes():
                 indiceNuevo = self.ListaVertices.index(self.obtenervertice(vAdya))
@@ -457,13 +458,12 @@ class Grafo():
         contador = 0
         while bandera:
             menor = caminosAux[contador]
-            if marcados[copiacaminos.index(menor)]==False:
+            if marcados[copiacaminos.index(menor)] == False:
                 verticeMenor = self.ListaVertices[copiacaminos.index(menor)]
                 bandera = False
             else:
-                copiacaminos[copiacaminos.index(menor)] = None
+                copiacaminos[copiacaminos.index(menor)] = "x"
                 contador = contador + 1
-
         return verticeMenor
 
     def todosMarcados(self, marcados):

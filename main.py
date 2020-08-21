@@ -36,7 +36,7 @@ def main():
     G.ingresararista("Marvin", "Correcaminos", 44, False)
     G.ingresararista("Correcaminos", "Bunny", 60, False)
     G.ingresararista("Correcaminos", "Popeye", 5, False)
-    G.caminoMasCorto("Coyote","Silvestre")
+    G.caminoMasCorto("Marvin","Piolin")
 
 
 
