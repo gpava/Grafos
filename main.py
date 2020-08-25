@@ -2,7 +2,7 @@ from Grafos.Grafo import *
 
 def main():
     G=Grafo()
-    G.ingresarvertice('A')
+    """G.ingresarvertice('A')
     G.ingresarvertice('B')
     G.ingresarvertice('C')
     G.ingresarvertice('D')
@@ -13,8 +13,8 @@ def main():
     G.ingresararista('C', 'D', 2, False)
     G.ingresararista('D', 'B', 5, False)
     G.ingresararista('D', 'E', 7, False)
-    G.ingresararista('B', 'E', 1, False)
-    """G.ingresarvertice("Silvestre")
+    G.ingresararista('B', 'E', 1, False)"""
+    G.ingresarvertice("Silvestre")
     G.ingresarvertice("Tazmania")
     G.ingresarvertice("Yayita")
     G.ingresarvertice("Coyote")
@@ -22,6 +22,7 @@ def main():
     G.ingresarvertice("Bunny")
     G.ingresarvertice("Popeye")
     G.ingresarvertice("Marvin")
+    G.ingresarvertice("Guevaniel")
     G.ingresarvertice("Correcaminos")
     G.ingresararista("Silvestre","Piolin",10,False)
     G.ingresararista("Silvestre", "Tazmania", 15, False)
@@ -35,8 +36,9 @@ def main():
     G.ingresararista("Bunny", "Marvin", 2, False)
     G.ingresararista("Marvin", "Correcaminos", 44, False)
     G.ingresararista("Correcaminos", "Bunny", 60, False)
-    G.ingresararista("Correcaminos", "Popeye", 5, False)"""
-    G.caminoMasCorto("A","D")
+    G.ingresararista("Correcaminos", "Popeye", 5, False)
+    G.ingresararista("Popeye", "Guevaniel", 2, True)
+    G.caminoMasCorto("Silvestre","Guevaniel")
 
 
 
