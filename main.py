@@ -22,7 +22,6 @@ def main():
     G.ingresarvertice("Bunny")
     G.ingresarvertice("Popeye")
     G.ingresarvertice("Marvin")
-    G.ingresarvertice("Guevaniel")
     G.ingresarvertice("Correcaminos")
     G.ingresararista("Silvestre","Piolin",10,False)
     G.ingresararista("Silvestre", "Tazmania", 15, False)
@@ -37,8 +36,7 @@ def main():
     G.ingresararista("Marvin", "Correcaminos", 44, False)
     G.ingresararista("Correcaminos", "Bunny", 60, False)
     G.ingresararista("Correcaminos", "Popeye", 5, False)
-    G.ingresararista("Popeye", "Guevaniel", 2, True)
-    G.caminoMasCorto("Silvestre","Guevaniel")
+    G.caminoMasCorto("Silvestre","Popeye")
 
 
 
