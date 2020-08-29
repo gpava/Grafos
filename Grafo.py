@@ -64,18 +64,18 @@ class Grafo():
 
     def numerodepozos(self):
         for Vertice in self.ListaVertices:
-            if(not Vertice.getListaAdyacentes()):
+            if not Vertice.getListaAdyacentes():
                 self.pozos=self.pozos+1
         return self.pozos
 
     def numerodefuentes(self):
         for Vertice in self.ListaVertices:
-            if(not Vertice.getListaIncidentes()):
+            if not Vertice.getListaIncidentes():
                 self.fuentes=self.fuentes+1
         return self.fuentes
 
     def esfdconexo(self):
-        if(self.pozos!=0 or self.fuentes!=0):
+        if self.pozos!=0 or self.fuentes!=0:
             return "-----El Grafo es Debilmente Conexo--------"
         else:
             return "-----El Grafo es Fuertemente Conexo-------"
@@ -93,18 +93,18 @@ class Grafo():
         for Arista in self.ListaAristas:
             print("Origen: {0} - Destino: {1} - Peso: {2}".format(Arista.getOrigen(),Arista.getDestino(),Arista.getPeso()))
 
-    def amplitud(self,origen):
-        VisitadosA=[]
-        cola=deque()
+    def Anchura(self, origen):
+        VisitadosA = []
+        cola = deque()
         Vertice=self.obtenervertice(origen)
         if Vertice!=None:
             VisitadosA.append(origen)
             cola.append(Vertice)
         while cola:
-            elemento=cola.popleft()#saca el primer elemento de la cola
+            elemento = cola.popleft() #saca el primer elemento de la cola
             for Adyacencia in elemento.getListaAdyacentes():
                 if Adyacencia not in VisitadosA:
-                    Vertice=self.obtenervertice(Adyacencia)
+                    Vertice = self.obtenervertice(Adyacencia)
                     VisitadosA.append(Adyacencia)
                     cola.append(Vertice)
         return VisitadosA
@@ -123,8 +123,8 @@ class Grafo():
                     CopiaAristas[i]=CopiaAristas[j]
                     CopiaAristas[j]=temp
 
-    def SumarPesos(self,ListaAristas):
-        suma=0
+    def SumarPesos(self, ListaAristas):
+        suma = 0
         for arista in ListaAristas:
             suma = suma + arista.getPeso()
         return suma
